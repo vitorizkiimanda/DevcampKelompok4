@@ -16,9 +16,8 @@ import org.jetbrains.anko.toast
 import java.util.*
 
 open class BaseOnBackActivity : AppCompatActivity() {
-    var backPressed: Long = 0
+    private var backPressed: Long = 0
     lateinit var session: SessionManagement
-//    lateinit var mediaPlayer: MediaPlayer
 
     //retrofit
     val apiServe by lazy {
@@ -27,20 +26,12 @@ open class BaseOnBackActivity : AppCompatActivity() {
     var disposable: Disposable? = null
     //
 
-
     //Text To Speech
     lateinit var mTTS: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
         session = SessionManagement(applicationContext)
         super.onCreate(savedInstanceState)
-
-//        //mediaPlayer
-//        mediaPlayer = MediaPlayer.create(this, R.raw.exit_apps)
-//        mediaPlayer?.setOnPreparedListener {
-//            Log.d("kohchigga", "Audio ready")
-//        }
-
 
         val locale = Locale("id", "ID")
         Locale.setDefault(locale)
@@ -71,15 +62,14 @@ open class BaseOnBackActivity : AppCompatActivity() {
         }
     }
 
-    private fun textToSpeech(){
-        val toSpeak = getString(R.string.press_to_exit)
+    fun textToSpeech(string: String){
+        val toSpeak = string
         if (toSpeak == ""){
             //if there is no text in edit text
             Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show()
         }
         else{
             //if there is text in edit text
-            Toast.makeText(this, toSpeak, Toast.LENGTH_SHORT).show()
             mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
         }
     }
@@ -90,7 +80,7 @@ open class BaseOnBackActivity : AppCompatActivity() {
             super.onBackPressed()
         }
         else {
-            textToSpeech()
+            textToSpeech(getString(R.string.press_to_exit))
             toast(getString(R.string.press_to_exit))
         }
         backPressed = System.currentTimeMillis()

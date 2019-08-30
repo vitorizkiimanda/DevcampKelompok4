@@ -3,10 +3,13 @@ package id.codepanda.tokofable.base
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.WindowManager
+import android.widget.Toast
 import id.codepanda.tokofable.retrofit.ApiService
 import id.codepanda.tokofable.util.SessionManagement
 import io.reactivex.disposables.Disposable
+import java.util.*
 
 open class BaseActivity : AppCompatActivity() {
     var backPressed: Long = 0
@@ -19,9 +22,23 @@ open class BaseActivity : AppCompatActivity() {
     var disposable: Disposable? = null
     //
 
+    //Text To Speech
+    lateinit var mTTS: TextToSpeech
+
     override fun onCreate(savedInstanceState: Bundle?) {
         session = SessionManagement(applicationContext)
         super.onCreate(savedInstanceState)
+        val locale = Locale("id", "ID")
+        Locale.setDefault(locale)
+
+        //TTS
+        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+            if (status != TextToSpeech.ERROR) {
+                //if there is no error then set language
+                mTTS.language = locale
+                mTTS.setSpeechRate(0.70f)
+            }
+        })
     }
 
     override fun onPause() {
@@ -37,6 +54,17 @@ open class BaseActivity : AppCompatActivity() {
             )
         } else {
             window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        }
+    }
+
+    fun textToSpeech(string: String) {
+        val toSpeak = string
+        if (toSpeak == "") {
+            //if there is no text in edit text
+            Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show()
+        } else {
+            //if there is text in edit text
+            mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
         }
     }
 }
