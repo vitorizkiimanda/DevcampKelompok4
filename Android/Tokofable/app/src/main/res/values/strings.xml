@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tokofable</string>
     <string name="press_to_exit">Tekan dua kali untuk keluar</string>
+    <string name="err_internet">Tidak ada koneksi internet</string>
 </resources>

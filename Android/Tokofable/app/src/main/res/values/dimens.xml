@@ -10,4 +10,5 @@
     <dimen name="font16sp">16sp</dimen>
     <dimen name="font18sp">18sp</dimen>
     <dimen name="font24sp">24sp</dimen>
+    <dimen name="font36sp">36sp</dimen>
 </resources>
