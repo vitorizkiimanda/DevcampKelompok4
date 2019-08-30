@@ -24,6 +24,11 @@ class MainActivity : BaseOnBackActivity() {
         init()
     }
 
+    override fun onResume() {
+        init()
+        super.onResume()
+    }
+
     private fun init(){
         TextToSpeech(
             applicationContext,
