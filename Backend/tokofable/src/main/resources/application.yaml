@@ -1,0 +1,21 @@
+erp:
+  salt: kaxue93jax8hp948s87uf_weu^he
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tokofable
+    username: zulfahmi
+    password: zulfahm1
+file:
+  uploadDir: /usr/share/nginx/images/as1
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+server:
+  port: 4001
