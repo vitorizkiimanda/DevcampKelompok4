@@ -59,7 +59,7 @@ class ReksadanaActivity : BaseActivity() {
 
         reksa_help.setOnClickListener {
             if (backPressedHelp + 2000 > System.currentTimeMillis()) {
-                textToSpeech("Halaman Daftar Layanan Keuangan, tekan tengah kiri untuk pinjaman online, tekan tengah kanan untuk pinjaman modal, tekan kiri bawah untuk kartu kredit, tekan kanan bawah untuk asuransi, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
+                textToSpeech("Halaman reksa dana, tekan tengah untuk ringkasan investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
             } else {
                 textToSpeech("Bantuan, tekan dua kali untuk penjelasan halaman")
             }
@@ -67,7 +67,7 @@ class ReksadanaActivity : BaseActivity() {
         }
 
         reksa_overview.setOnClickListener {
-            textToSpeech("Halaman Reksadana, kamu belum punya investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
+            textToSpeech("Ringkasan Reksa dana, kamu belum punya investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
         }
         reksa_sell.setOnClickListener {
             textToSpeech("Jual reksa dana")
