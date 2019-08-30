@@ -2,7 +2,7 @@ package com.devcamp.tokofable.service;
 
 import com.devcamp.tokofable.entity.Transactions;
 import com.devcamp.tokofable.exceptions.BadRequestException;
-import com.devcamp.tokofable.repository.TransactionsRepository;
+import com.devcamp.tokofable.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -12,12 +12,12 @@ import java.util.UUID;
 @Service
 public class TransactionsService {
     @Autowired
-    private TransactionsRepository transactionsRepository ;
+    private TransactionRepository transactionRepository ;
 
     public Transactions create(Transactions Transactions){
         validate(Transactions);
         Transactions.setId(UUID.randomUUID().toString());
-        return transactionsRepository.save(Transactions);
+        return transactionRepository.save(Transactions);
     }
 
     private void validate(Transactions Transactions){
