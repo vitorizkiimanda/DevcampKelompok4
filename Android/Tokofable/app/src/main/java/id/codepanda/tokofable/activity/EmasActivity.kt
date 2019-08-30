@@ -75,7 +75,7 @@ class EmasActivity : BaseActivity() {
         }
 
         gold_overview.setOnClickListener {
-            textToSpeech("Informasi Emas, nilai emas Anda 170000 rupiah dengan total 10 gram emas, harga emas per gram hari ini 707000 rupiah, harga emas kemarin 600000 rupiah")
+            textToSpeech("Informasi Emas, nilai emas Anda 170000 rupiah dengan total 10 gram emas, harga emas per gram hari ini 707000 rupiah, harga beli emas kemarin 750000 rupiah, harga jual emas kemarin 720000")
         }
 
         gold_buy.setOnClickListener {
