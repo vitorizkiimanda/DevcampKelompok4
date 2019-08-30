@@ -8,4 +8,151 @@
         tools:context=".activity.LainnyaActivity"
         android:background="@color/colorBlack">
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+                android:id="@+id/more_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/spacing32dp"
+                android:background="@android:color/holo_purple"
+        >
+
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_arrow"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kembali"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/more_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+        >
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_help"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bantuan"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:id="@+id/more_pinjaman_online"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:gravity="center"
+                android:background="@android:color/holo_orange_light"
+                android:layout_marginEnd="@dimen/spacing32dp"
+        >
+
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:src="@drawable/pinjamanonline"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pinjaman Online"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/more_pinjaman_modal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+        >
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:src="@drawable/pinjamanmodal"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pinjaman Modal"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:id="@+id/more_kartu_kredit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:gravity="center"
+                android:background="@android:color/holo_red_light"
+                android:layout_marginEnd="@dimen/spacing32dp"
+        >
+
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:src="@drawable/kartukredit"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kartu Kredit"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/more_asuransi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+        >
+
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="60dp"
+                       android:src="@drawable/asuransi"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asuransi"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

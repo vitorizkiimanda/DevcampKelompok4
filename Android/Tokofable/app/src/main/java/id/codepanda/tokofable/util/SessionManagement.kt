@@ -48,13 +48,6 @@ class SessionManagement(private var context: Context) {
         editor.putBoolean(IS_LOGIN, true)
 
         editor.putString(KEY_TOKEN, data.token)
-        editor.putString(KEY_ID, data.user._id)
-        editor.putString(KEY_NAME, data.user.name)
-        editor.putString(KEY_EMAIL, data.user.email)
-        editor.putString(KEY_PRIVILEGE, data.user.privilege[0])
-        editor.putString(KEY_IMAGE, data.user.image)
-        editor.putString(KEY_PHONE, data.user.phone)
-        editor.putString(KEY_VILLAGE_ID, data.user.villageId.toString())
         editor.commit()
     }
 

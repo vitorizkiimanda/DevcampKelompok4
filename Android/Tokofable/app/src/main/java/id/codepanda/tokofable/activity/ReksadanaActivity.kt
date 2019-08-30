@@ -5,8 +5,12 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import id.codepanda.tokofable.R
 import id.codepanda.tokofable.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_reksadana.*
 
 class ReksadanaActivity : BaseActivity() {
+
+    private var backPressedHelp: Long = 0
+    private var backPressedBack: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +30,7 @@ class ReksadanaActivity : BaseActivity() {
             TextToSpeech.OnInitListener { welcomeSpeech("Halaman Reksadana, kamu belum punya investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan") },
             "com.google.android.tts"
         )
-//        onClick()
+        onClick()
     }
 
     override fun onBackPressed() {
@@ -39,5 +43,37 @@ class ReksadanaActivity : BaseActivity() {
             textToSpeech("Tekan dua kali untuk kembali ke halaman beranda")
         }
         backPressed = System.currentTimeMillis()
+    }
+
+
+    private fun onClick() {
+        reksa_back.setOnClickListener {
+            if (backPressedBack + 2000 > System.currentTimeMillis()) {
+                mTTS.stop()
+                finish()
+            } else {
+                textToSpeech("Kembali, Tekan dua kali untuk kembali ke halaman beranda")
+            }
+            backPressedBack = System.currentTimeMillis()
+        }
+
+        reksa_help.setOnClickListener {
+            if (backPressedHelp + 2000 > System.currentTimeMillis()) {
+                textToSpeech("Halaman reksa dana, tekan tengah untuk ringkasan investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
+            } else {
+                textToSpeech("Bantuan, tekan dua kali untuk penjelasan halaman")
+            }
+            backPressedHelp = System.currentTimeMillis()
+        }
+
+        reksa_overview.setOnClickListener {
+            textToSpeech("Ringkasan Reksa dana, kamu belum punya investasi, tekan kanan bawah untuk beli, tekan kiri bawah untuk jual, tekan kiri atas untuk kembali, dan tekan kanan atas untuk bantuan")
+        }
+        reksa_sell.setOnClickListener {
+            textToSpeech("Jual reksa dana")
+        }
+        reksa_buy.setOnClickListener {
+            textToSpeech("Beli reksa dana")
+        }
     }
 }
