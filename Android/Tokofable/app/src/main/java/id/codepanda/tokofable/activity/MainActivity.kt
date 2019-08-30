@@ -4,12 +4,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import id.codepanda.rembukdesa.retrofit.model.User
 import id.codepanda.tokofable.R
 import id.codepanda.tokofable.base.BaseOnBackActivity
+import id.codepanda.tokofable.util.apiErrorHandling
+import id.codepanda.tokofable.util.errNoInternet
+import id.codepanda.tokofable.util.isNetworkConnected
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
+import org.json.JSONObject
+import retrofit2.HttpException
 
 class MainActivity : BaseOnBackActivity() {
 
@@ -29,7 +37,46 @@ class MainActivity : BaseOnBackActivity() {
         super.onResume()
     }
 
-    private fun init(){
+
+    private fun showProgress(show: Boolean) {
+        home_progress.bringToFront()
+        home_progress.visibility = if (show) View.VISIBLE else View.GONE
+        disableTouch(show)
+    }
+
+    private fun login() {
+        if (!isNetworkConnected(this)) {
+            errNoInternet(this)
+            return
+        }
+        showProgress(true)
+        disposable = apiServe.login("zulfahmiibnuhabibi@gmail.com", "123456")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { result ->
+                    dataLogic(result)
+                },
+                { error ->
+                    showProgress(false)
+                    apiErrorHandling(error as HttpException, this)
+                }
+            )
+    }
+
+
+    private fun dataLogic(result: User.Result) {
+
+        session.createLoginSession(result)
+        TextToSpeech(
+            applicationContext,
+            TextToSpeech.OnInitListener { welcomeSpeech("Halaman Beranda, Tekan tengah untuk emas, Tekan kiri bawah untuk reksadana, tekan kanan bawah untuk layanan keuangan lainnya, dan tekan kanan atas untuk bantuan") },
+            "com.google.android.tts"
+        )
+    }
+
+    private fun init() {
+//        login()
         TextToSpeech(
             applicationContext,
             TextToSpeech.OnInitListener { welcomeSpeech("Halaman Beranda, Tekan tengah untuk emas, Tekan kiri bawah untuk reksadana, tekan kanan bawah untuk layanan keuangan lainnya, dan tekan kanan atas untuk bantuan") },
@@ -79,13 +126,12 @@ class MainActivity : BaseOnBackActivity() {
         }
     }
 
-    private fun welcomeSpeech(string: String){
+    private fun welcomeSpeech(string: String) {
         mTTS.stop()
-        if (string == ""){
+        if (string == "") {
             //if there is no text in edit text
             Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show()
-        }
-        else{
+        } else {
             //if there is text in edit text
             mTTS.speak(string, TextToSpeech.QUEUE_FLUSH, null)
         }

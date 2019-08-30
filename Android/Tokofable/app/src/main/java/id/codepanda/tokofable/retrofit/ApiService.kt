@@ -33,65 +33,7 @@ interface ApiService {
     ):
             Observable<User.Result>
 
-    @POST("/auth/register")
-    @FormUrlEncoded
-    fun register(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("password") password: String,
-        @Field("privilege") privilege: String,
-        @Field("villageId") villageId: Number,
-        @Field("phone") phone: String,
-        @Field("image") image: String
-    ):
-            Observable<User.Result>
 
-    @POST("/auth/google")
-    @FormUrlEncoded
-    fun loginGoogle(
-        @Field("idToken") idToken: String
-    ):
-            Observable<User.Result>
-
-    //Address
-    @GET("/address/provinces")
-    fun getProvince():
-            Observable<Province.Result>
-
-    @GET
-    fun getRegency(@Url url: String):
-            Observable<Regency.Result>
-
-    @GET
-    fun getDistrict(@Url url: String):
-            Observable<District.Result>
-
-    @GET
-    fun getVillage(@Url url: String):
-            Observable<Village.Result>
-
-    //Chatting
-    @GET
-    fun getChatByRoomId(@Url url: String):
-            Observable<Chat.Result>
-
-    @POST("/personal-message")
-    @FormUrlEncoded
-    fun chatCreate(
-        @Field("personalRoom") personalRoom: String,
-        @Field("receiver") receiver: String,
-        @Field("contentType") contentType: String,
-        @Field("content") content: String
-    ):
-            Observable<ChatData.Result>
-
-    @GET("/personal-room/?populateLastMessage=1&populateUser=1")
-    fun getInbox():
-            Observable<Inbox.Result>
-
-    @GET
-    fun getRoomPersonalDetail(@Url url: String):
-            Observable<RoomPersonal.Result>
 
     companion object {
         @SuppressLint("StaticFieldLeak")

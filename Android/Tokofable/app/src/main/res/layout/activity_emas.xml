@@ -83,14 +83,14 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rp0"
+                android:text="Rp7.010.000"
                 android:textColor="@color/colorBlack"
                 android:layout_marginTop="@dimen/spacing4dp"
                 android:textSize="@dimen/font24sp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="(0 gram)"
+                android:text="(10 gram)"
                 android:textColor="@color/colorBlack"
                 android:layout_marginTop="@dimen/spacing4dp"/>
     </LinearLayout>
