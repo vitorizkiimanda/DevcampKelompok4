@@ -4,7 +4,8 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context=".activity.MainActivity">
+                                             tools:context=".activity.MainActivity"
+                                             android:background="@color/colorBlack">
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   app:layout_constraintTop_toTopOf="parent">
@@ -58,7 +59,7 @@
 
         <ImageView android:layout_width="32dp"
                    android:layout_height="32dp"
-                   android:src="@drawable/ic_money"/>
+                   android:src="@drawable/ic_diamond"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing48dp"
+                android:paddingVertical="@dimen/spacing48dp"
                 android:gravity="center"
                 android:background="@android:color/holo_red_light"
                 android:layout_marginEnd="@dimen/spacing32dp"
