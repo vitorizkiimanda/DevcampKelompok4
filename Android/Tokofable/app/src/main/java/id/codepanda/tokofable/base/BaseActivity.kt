@@ -1,9 +1,9 @@
 package id.codepanda.tokofable.base
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import id.codepanda.tokofable.retrofit.ApiService
@@ -28,6 +28,7 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         session = SessionManagement(applicationContext)
         super.onCreate(savedInstanceState)
+
         val locale = Locale("id", "ID")
         Locale.setDefault(locale)
 
@@ -58,13 +59,13 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun textToSpeech(string: String) {
-        val toSpeak = string
-        if (toSpeak == "") {
+        mTTS.stop()
+        if (string == "") {
             //if there is no text in edit text
             Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show()
         } else {
             //if there is text in edit text
-            mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
+            mTTS.speak(string, TextToSpeech.QUEUE_FLUSH, null)
         }
     }
 }
