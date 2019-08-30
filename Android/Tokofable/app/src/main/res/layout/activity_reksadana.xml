@@ -8,4 +8,125 @@
         tools:context=".activity.ReksadanaActivity"
         android:background="@color/colorBlack">
 
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+                android:id="@+id/reksa_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/spacing32dp"
+                android:background="@android:color/holo_purple"
+        >
+
+
+            <ImageView android:layout_width="60dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_arrow"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kembali"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/reksa_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+        >
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_help"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bantuan"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/reksa_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing16dp"
+            android:gravity="center"
+            android:background="@android:color/holo_orange_light"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    >
+
+        <ImageView android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:src="@drawable/reksadana"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Investasi Anda"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="@dimen/spacing4dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp0"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="@dimen/spacing4dp"
+                android:textSize="@dimen/font24sp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:id="@+id/reksa_sell"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:gravity="center"
+                android:background="@android:color/holo_red_light"
+                android:layout_marginEnd="@dimen/spacing32dp"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JUAL"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/reksa_buy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/spacing48dp"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BELI"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
