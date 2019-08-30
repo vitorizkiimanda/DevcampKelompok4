@@ -15,6 +15,8 @@ class MainActivity : BaseOnBackActivity() {
 
     private var backPressedHelp: Long = 0
     private var backPressedEmas: Long = 0
+    private var backPressedReksadana: Long = 0
+    private var backPressedMore: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,26 @@ class MainActivity : BaseOnBackActivity() {
                 textToSpeech("Emas, tekan dua kali untuk transaksi emas")
             }
             backPressedEmas = System.currentTimeMillis()
+        }
+
+        home_reksadana.setOnClickListener {
+            if (backPressedReksadana + 2000 > System.currentTimeMillis()) {
+                startActivity<ReksadanaActivity>()
+                mTTS.stop()
+            } else {
+                textToSpeech("Reksadana, tekan dua kali untuk transaksi reksadana")
+            }
+            backPressedReksadana = System.currentTimeMillis()
+        }
+
+        home_more.setOnClickListener {
+            if (backPressedMore + 2000 > System.currentTimeMillis()) {
+                startActivity<LainnyaActivity>()
+                mTTS.stop()
+            } else {
+                textToSpeech("Lainnya, tekan dua kali untuk layanan keuangan lainnya")
+            }
+            backPressedMore = System.currentTimeMillis()
         }
     }
 

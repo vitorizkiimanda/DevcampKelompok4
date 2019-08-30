@@ -10,12 +10,33 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.EmasActivity">
+        <activity android:name=".activity.EmasJualActivity"
+                  android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
-        <activity android:name=".base.BaseOnBackActivity">
+        <activity android:name=".activity.EmasBeliActivity"
+                  android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
-        <activity android:name=".base.BaseActivity">
+        <activity
+                android:name=".activity.LainnyaActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+                android:name=".activity.ReksadanaActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+                android:name=".activity.EmasActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+                android:name=".base.BaseOnBackActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity
+                android:name=".base.BaseActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
                 android:name=".activity.SplashActivity"
@@ -27,7 +48,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity
+                android:name=".activity.MainActivity"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
     </application>
 
