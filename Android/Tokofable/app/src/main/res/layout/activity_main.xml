@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             tools:context=".activity.MainActivity">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/spacing32dp"
+        >
+
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/home_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+        >
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_help"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bantuan"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/home_gold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing48dp"
+            android:gravity="center"
+            android:background="@android:color/holo_orange_light"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    >
+
+        <ImageView android:layout_width="32dp"
+                   android:layout_height="32dp"
+                   android:src="@drawable/ic_money"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emas"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="@dimen/spacing4dp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+                android:id="@+id/home_reksadana"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:gravity="center"
+                android:background="@android:color/holo_red_light"
+                android:layout_marginEnd="@dimen/spacing32dp"
+        >
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_money"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reksadana"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/home_more"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing48dp"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/spacing32dp"
+        >
+
+            <ImageView android:layout_width="32dp"
+                       android:layout_height="32dp"
+                       android:src="@drawable/ic_more"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lainnya"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="@dimen/spacing4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
