@@ -29,7 +29,7 @@ public class GoldPriceService {
         return goldPriceRepository.save(goldPrices);
     }
 
-    Date normalizeDate(Date date){
+    private Date normalizeDate(Date date){
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.set(Calendar.HOUR_OF_DAY, 0);

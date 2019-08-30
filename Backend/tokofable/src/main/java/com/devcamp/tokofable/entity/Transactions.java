@@ -9,6 +9,8 @@ import java.util.Date;
 public class Transactions {
     @Id
     private String id ;
+    @ManyToOne
+    private Users user ;
     private Date date ;
     private String noTransaction ;
     private Double weight ;
@@ -20,8 +22,9 @@ public class Transactions {
     public Transactions() {
     }
 
-    public Transactions(String id, Date date, String noTransaction, Double weight, Boolean transactionType, Double price, PaymentMethods paymentMethods) {
+    public Transactions(String id, Users user, Date date, String noTransaction, Double weight, Boolean transactionType, Double price, PaymentMethods paymentMethods) {
         this.id = id;
+        this.user = user;
         this.date = date;
         this.noTransaction = noTransaction;
         this.weight = weight;
@@ -30,6 +33,13 @@ public class Transactions {
         this.paymentMethods = paymentMethods;
     }
 
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
     public String getId() {
         return id;

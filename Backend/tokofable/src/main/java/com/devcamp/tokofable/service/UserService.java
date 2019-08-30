@@ -25,6 +25,11 @@ public class UserService {
     public Users register(Users users){
         users.setId(UUID.randomUUID().toString());
         users.setPassword(Security.hashPassword(users.getPassword()));
+        users.setGoldWeight(0.0);
+        users.setOvo(50000.0);
+        Users users1 = userRepository.findByEmail(users.getEmail());
+        if(users1 != null)
+            throw new BadRequestException("email sudah digunakan");
         return userRepository.save(users);
     }
 

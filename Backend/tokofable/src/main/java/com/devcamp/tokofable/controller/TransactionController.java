@@ -1,12 +1,14 @@
 package com.devcamp.tokofable.controller;
 
+import com.devcamp.tokofable.config.AuthContext;
 import com.devcamp.tokofable.entity.Transactions;
 import com.devcamp.tokofable.service.TransactionsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/transaction")
@@ -15,8 +17,19 @@ public class TransactionController {
     @Autowired
     private TransactionsService transactionsService ;
 
-    @PostMapping
-    public Transactions create(@RequestBody Transactions transactions) {
-        return transactionsService.create(transactions);
+    @GetMapping
+    public List<Transactions> getAll(){
+       return transactionsService.getAll();
     }
+
+    @PostMapping("/buy")
+    public Transactions createBuy(@RequestBody Transactions transactions) {
+        return transactionsService.createBuy(transactions);
+    }
+
+    @PostMapping("/sell")
+    public Transactions createSell(@RequestBody Transactions transactions) {
+        return transactionsService.createSell(transactions);
+    }
+
 }
