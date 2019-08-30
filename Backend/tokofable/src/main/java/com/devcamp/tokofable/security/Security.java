@@ -1,5 +1,6 @@
 package com.devcamp.tokofable.security;
 
+import com.devcamp.tokofable.config.AuthModel;
 import com.google.common.hash.Hashing;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -68,9 +69,9 @@ public class Security {
         return rt(token, expire, salt);
     }
 
-//    public static AuthModel getModel(String token, String salt) throws ExpiredJwtException, MalformedJwtException {
-//        Claims claims = (Claims)Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(salt)).parseClaimsJws(token).getBody();
-//        return new AuthModel(claims.getId(), claims.getSubject(), claims.getAudience());
-//    }
+    public static AuthModel getModel(String token, String salt) throws ExpiredJwtException, MalformedJwtException {
+        Claims claims = (Claims)Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(salt)).parseClaimsJws(token).getBody();
+        return new AuthModel(claims.getId(), claims.getSubject(), claims.getAudience());
+    }
 }
 

@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.devcamp.tokofable.entity.Users;
 
 @Repository
-public interface UsersRepository extends JpaRepository<Users, String>, JpaSpecificationExecutor<Users> {
+public interface UserRepository extends JpaRepository<Users, String>, JpaSpecificationExecutor<Users> {
+    Users findByEmail(String email);
 }
